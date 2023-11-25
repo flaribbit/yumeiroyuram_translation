@@ -47,29 +47,29 @@
 TUTORIAL_01_01
 TUTORIAL_01_01
 図形の作り方_01
-図形の作り方_01
+图形合成方法_01
 はじめまして、ノエラです
-はじめまして、ノエラです
+初次见面，我是诺艾拉
 このゲームの基本をご紹介します
-このゲームの基本をご紹介します
+我来介绍一下这个游戏的基本玩法
 このゲームの基本はブロックを４個
-このゲームの基本はブロックを４個
+这个游戏的基本玩法是将四个方块
 つなげて「図形」を作ることです
-つなげて「図形」を作ることです
+连接起来，制作出「图形」
 ブロックは<icon ICON_ID_BUTTON_LEFT_RIGHT>で左右に移動し
-ブロックは<icon ICON_ID_BUTTON_LEFT_RIGHT>で左右に移動し
+方块可以用<icon ICON_ID_BUTTON_LEFT_RIGHT>左右移动
 <icon ICON_ID_BUTTON_CROSS>で左回転し<icon ICON_ID_BUTTON_CIRCLE>で右回転する他
-<icon ICON_ID_BUTTON_CROSS>で左回転し<icon ICON_ID_BUTTON_CIRCLE>で右回転する他
+也可以用<icon ICON_ID_BUTTON_CROSS>左旋转，<icon ICON_ID_BUTTON_CIRCLE>右旋转
 <icon ICON_ID_BUTTON_DOWN>で落下を早めることができます
-<icon ICON_ID_BUTTON_DOWN>で落下を早めることができます
+用<icon ICON_ID_BUTTON_DOWN>加速下落
 また、<icon ICON_ID_BUTTON_UP>で一気に落とす
-また、<icon ICON_ID_BUTTON_UP>で一気に落とす
+另外，还可以用<icon ICON_ID_BUTTON_UP>
 ハードドロップもできます
-ハードドロップもできます
+一下子落到底部
 盤面の中に色んな「図形」を作って
-盤面の中に色んな「図形」を作って
+在盘面上制作出各种各样的「图形」
 ゆめ魔法の力を高めましょう！
-ゆめ魔法の力を高めましょう！
+提升梦幻魔法的力量吧！
 TUTORIAL_01_02
 TUTORIAL_01_02
 図形の作り方_02
