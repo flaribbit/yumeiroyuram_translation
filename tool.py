@@ -54,6 +54,30 @@ def subset(filepath, current_fontpath, fallback_fontpath):
     font.save("missing.otf")
 
 
+def translate(textpath, binpath, outbinpath):
+    f1 = open(binpath, "rb")
+    f2 = open(textpath, "r", encoding="utf8")
+    content = f1.read()
+    for line1, line2 in zip(f2, f2):
+        line1 = line1.rstrip()
+        line2 = line2.rstrip()
+        bytes1 = line1.encode("utf8") + b"\x00"
+        bytes2 = line2.encode("utf8") + b"\x00"
+        if len(bytes1) < len(bytes2):
+            print("warn: Too long: ", line2)
+            continue
+        bytes2 = bytes2.ljust(len(bytes1), b"\x00")
+        pos = content.find(bytes1)
+        if pos == -1:
+            print(f"warn: Not found: {line1}")
+            continue
+        content = content.replace(bytes1, bytes2)
+    f1.close()
+    f2.close()
+    with open(outbinpath, "wb") as f3:
+        f3.write(content)
+
+
 def main():
     args = sys.argv
     if args[1] == "split":
@@ -62,6 +86,8 @@ def main():
         merge(args[2])
     elif args[1] == "subset":
         subset(args[2], args[3], args[4])
+    elif args[1] == "translate":
+        translate(args[2], args[3], args[4])
 
 
 if __name__ == "__main__":
