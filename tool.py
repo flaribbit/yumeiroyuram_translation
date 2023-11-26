@@ -55,12 +55,19 @@ def subset(filepath, current_fontpath, fallback_fontpath):
 
 
 def translate(textpath, binpath, outbinpath):
-    f1 = open(binpath, "rb")
-    f2 = open(textpath, "r", encoding="utf8")
-    content = f1.read()
-    for line1, line2 in zip(f2, f2):
-        line1 = line1.rstrip()
-        line2 = line2.rstrip()
+    dic: dict[str, str] = {}
+    with open(textpath, "r", encoding="utf8") as f1:
+        for line1, line2 in zip(f1, f1):
+            line1 = line1.rstrip()
+            line2 = line2.rstrip()
+            if line1 in dic:
+                continue
+            dic[line1] = line2
+    keys = sorted(dic.keys(), key=len, reverse=True)
+    with open(binpath, "rb") as f2:
+        content = f2.read()
+    for line1 in keys:
+        line2 = dic[line1]
         bytes1 = line1.encode("utf8") + b"\x00"
         bytes2 = line2.encode("utf8") + b"\x00"
         if len(bytes1) < len(bytes2):
@@ -72,8 +79,6 @@ def translate(textpath, binpath, outbinpath):
             print(f"warn: Not found: {line1}")
             continue
         content = content.replace(bytes1, bytes2)
-    f1.close()
-    f2.close()
     with open(outbinpath, "wb") as f3:
         f3.write(content)
 
